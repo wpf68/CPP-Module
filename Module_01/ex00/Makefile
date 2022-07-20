@@ -13,7 +13,7 @@
 NAME		= BraiiiiiiinnnzzzZ
 
 SRCS		= 	main.cpp		\
-			Zombie.cpp		\
+			Zombie.cpp			\
 			randomChump.cpp		\
 			newZombie.cpp
 			

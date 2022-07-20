@@ -1,4 +1,16 @@
-﻿#include "Zombie.hpp"
+﻿/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/20 10:30:25 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/20 10:30:25 by pwolff           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Zombie.hpp"
 
 Zombie* newZombie(std::string name);
 void	randomChump(std::string name);

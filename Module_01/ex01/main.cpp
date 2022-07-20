@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/20 10:41:33 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/20 10:41:33 by pwolff           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 void	ft_present(void)
@@ -34,7 +46,7 @@ int	main(void)
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << WHITE "Zombie n° " GREEN << i + 1 << " : ";
+		std::cout << WHITE "Zombie nï¿½ " GREEN << i + 1 << " : ";
 		horde[i].announce();
 	}
 	std::cout << std::endl;
