@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+         #
+#    By: pwolff@student.42mulhouse.fr> <pwolff>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/20 11:04:37 by pwolff            #+#    #+#              #
-#    Updated: 2022/07/20 11:04:37 by pwolff           ###   ########.fr        #
+#    Created: 2022/07/20 16:20:38 by pwolff@stud       #+#    #+#              #
+#    Updated: 2022/07/20 16:20:38 by pwolff@stud      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
