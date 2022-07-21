@@ -3,19 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pwolff@student.42mulhouse.fr> <pwolff>     +#+  +:+       +#+         #
+#    By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/20 16:20:38 by pwolff@stud       #+#    #+#              #
-#    Updated: 2022/07/20 16:20:38 by pwolff@stud      ###   ########.fr        #
+#    Created: 2022/07/21 17:23:47 by pwolff            #+#    #+#              #
+#    Updated: 2022/07/21 17:23:47 by pwolff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Unnecessary_violence
+NAME		=	Sed_is_for_losers
 
-SRCS		= 	main.cpp	\
-			Weapon.cpp	\
-			HumanA.cpp	\
-			HumanB.cpp
+SRCS		= 	main.cpp						\
+				create_filename_replace.cpp		\
+				create_strings.cpp
 
 OBJS				= $(SRCS:.cpp=.o)
 OBJS_DIR			= objs/
@@ -31,9 +30,9 @@ RESET	=	\033[0m
 
 $(OBJS_DIR)%.o : %.cpp
 	@mkdir -p $(OBJS_DIR)
-#	@mkdir -p $(OBJS_DIR)srcs
 	$(CC) $(CC_FLAGS) -c $< -o $@
 #	@printf	"\033[2K\r${BLU}[BUILD]${RST} '$<' $(END)"
+#	@mkdir -p $(OBJS_DIR)srcsi
 
 all: $(NAME)
 	@echo "$(RED)----------done------------$(RESET)"
@@ -48,6 +47,9 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all 
+re: fclean all
 
-.PHONY:		all clean fclean re 
+test:	all
+	./Sed_is_for_losers .test "**test**" "___A___" 
+
+.PHONY:		all clean fclean re test
