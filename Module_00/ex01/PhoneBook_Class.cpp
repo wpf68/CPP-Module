@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_Class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 10:22:33 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/20 10:22:38 by pwolff           ###   ########.fr       */
+/*   Created: 2022/07/26 18:56:38 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/26 18:56:38 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@
 
 	PhoneBook::PhoneBook(void)
 {
-	this->_nbContact = -1;
-	this->ft_present();
+	_nbContact = -1;
+	ft_present();
+	_flag = false;
 }
 
         /*Destructor*/
 
-
+	PhoneBook::~PhoneBook(void)
+	{
+	}
 
 
 
@@ -73,23 +76,28 @@ void    PhoneBook::ft_present(void) const
 
 void	PhoneBook::ft_add(void)
 {
-	if (this->_nbContact < 7)
-		this->_nbContact += 1;
+	if (_nbContact < 7)
+		_nbContact += 1;
+	else
+	{
+		_flag = true;
+		_nbContact = 0;
+	}
 	
-	this->ft_present();
-	std::cout << F_BOLD << CYANE << "\n\t\tContact n° " << this->_nbContact + 1 << F_NONE << std::endl;
-	Coord[this->_nbContact].ft_create_repertory(Coord[this->_nbContact]);
+	ft_present();
+	std::cout << F_BOLD << CYANE << "\n\t\tContact n° " << _nbContact + 1 << F_NONE << std::endl;
+	PhoneBook::Coord[PhoneBook::_nbContact].ft_create_repertory(PhoneBook::Coord[PhoneBook::_nbContact]);
 }
 
 void	PhoneBook::ft_search(void)
 {
-	int		i;
+	int			i;
 	std::string	cmd;
 
 	if (this->_nbContact == -1)
 	{
 		std::cout << RED << "\n\t\tRepertory is empty !!!" << F_NONE << std::endl;
-		return ;
+		return;
 	}
 
 	i = -1;
@@ -106,9 +114,14 @@ void	PhoneBook::ft_search(void)
 		std::cout << "-----------";
 	std::cout << "-" << std::endl;
 
-	i = -1;
-	while (++i <= this->_nbContact)
+	i = 0;
+	while ((!_flag && i <= this->_nbContact) || (_flag && i <= 7))
+	{
+
 		Coord[i].ft_print_repertory(Coord[i], i + 1);
+		i++;
+	}
+
 	std::cout << GREEN << "\nEnter Num to contact (9 : quit) : ";
 
 	while (true)
@@ -116,7 +129,7 @@ void	PhoneBook::ft_search(void)
 		std::cout << F_NONE << F_BOLD;
 		std::getline(std::cin, cmd);
 		i = atoi(cmd.c_str());
-		if ((i >= 1 && i <= this->_nbContact + 1) || i == 9)
+		if ((!_flag && i >= 1 && i <= this->_nbContact + 1) || (_flag && i >= 1 && i <= 8) || i == 9)
 			break ;
 		std::cout << RED << "\nEnter Num to contact (9 : quit) please : ";
 	}
@@ -124,8 +137,5 @@ void	PhoneBook::ft_search(void)
 		return ;
 		
 	Coord[i - 1].ft_print_contact(Coord[i - 1], i);
-
-
-	
 }
 

@@ -42,6 +42,7 @@ private:
 	
 public:
 	Contact(void);
+	~Contact(void);
 	
 	void	ft_create_repertory(Contact& Coord);
 	void	ft_print_repertory(Contact Coord, int j);

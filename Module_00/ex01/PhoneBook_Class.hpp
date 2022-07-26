@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook_Class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 10:22:51 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/20 10:23:01 by pwolff           ###   ########.fr       */
+/*   Created: 2022/07/26 18:57:36 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/26 18:57:36 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,18 @@ enum	dataContact{
 
 class	PhoneBook
 {
-private:
-	Contact Coord[8];
-	int	_nbContact;
+	private:
+		Contact Coord[8];
+		int		_nbContact;
+		bool	_flag;
 
-public:
-	PhoneBook(void);
-//	~PhoneBook(void);
+	public:
+		PhoneBook(void);
+		~PhoneBook(void);
 
-	void    ft_present(void) const;
-	void	ft_add(void);
-	void	ft_search(void);
+		void    ft_present(void) const;
+		void	ft_add(void);
+		void	ft_search(void);
 };
 
 #endif

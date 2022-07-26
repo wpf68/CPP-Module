@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 10:18:58 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/20 10:19:05 by pwolff           ###   ########.fr       */
+/*   Created: 2022/07/26 18:55:40 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/26 18:55:40 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	main(void)
 		std::cout << F_NONE << F_BOLD << " Your Choice : ";
 		std::getline(std::cin, cmd);
 
-		if (cmd == "3")
+		if (cmd == "3" || cmd == "EXIT")
 			on_off = 0;
-		else if (cmd == "1")
+		else if (cmd == "1" || cmd == "ADD")
 			Repertory.ft_add();
-		else if (cmd == "2")
+		else if (cmd == "2" || cmd == "SEARCH")
 			Repertory.ft_search();
 		else
 			std::cout << RED << "\n" << cmd << RED << \

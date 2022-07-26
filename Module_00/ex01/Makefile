@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+         #
+#    By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/20 10:21:56 by pwolff            #+#    #+#              #
-#    Updated: 2022/07/20 10:21:56 by pwolff           ###   ########.fr        #
+#    Created: 2022/07/26 18:56:09 by pwolff            #+#    #+#              #
+#    Updated: 2022/07/26 18:56:09 by pwolff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ YELLOW	=	\033[1;33m
 RESET	=	\033[0m
 
 all: $(NAME)
-	@echo "$(RED)----------done------------$(RESET)"
+	
 
 $(NAME): $(SRCS) $(OBJ)
 	$(CC) $(FLAGS) $(SRCS) -o $(NAME) 
-	@echo "$(RED)----------done------------$(RESET)"
+	@echo "$(YELLOW)----------done------------$(RESET)"
 
 
 %.o: %.c
@@ -48,4 +48,7 @@ fclean: clean
 
 re: fclean all 
 
-.PHONY:		all clean fclean re 
+test:	all
+	./${NAME}
+
+.PHONY:		all clean fclean re test

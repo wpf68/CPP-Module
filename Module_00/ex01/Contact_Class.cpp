@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact_Class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 10:15:23 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/20 10:15:37 by pwolff           ###   ########.fr       */
+/*   Created: 2022/07/26 18:54:23 by pwolff            #+#    #+#             */
+/*   Updated: 2022/07/26 18:54:23 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,15 @@ std::string	Contact::_input[5]={
 
         /*Constructor*/
 
-	Contact::Contact(void)
+Contact::Contact(void)
 {
-/*	int	i = -1;
-	int	k;
-	static int	j = 0;
-
-	std::cout << "-- Test --" << j << std::endl;
-	while (++i < 5)
-	{
-		this->_repertory[i] = "--";
-		k = 0;
-		while (k++ < j)
-			this->_repertory[i] += "--";
-	}
-	i = -1;
-	while (++i < 5)
-		std::cout << this->_repertory[i] << std::endl;
-	j++;*/
 }
 
         /*Destructor*/
 
-
-
+Contact::~Contact(void)
+{
+}
 
 
 void	Contact::ft_create_repertory(Contact& Coord)
@@ -71,8 +56,11 @@ void	Contact::ft_create_repertory(Contact& Coord)
 	std::cout << F_BOLD << std::endl;
 	while (++i < 5)
 	{
-		std::cout << this->_input[i] << " :: ";
-		std::getline(std::cin, data);
+		do
+		{
+			std::cout << this->_input[i] << " :: ";
+			std::getline(std::cin, data);
+		} while (data.empty());
 		Coord._repertory[i] = data;
 	}
 	std::cout << F_NONE;
@@ -87,7 +75,7 @@ void	Contact::ft_print_repertory(Contact Coord, int j)
 	while (++i < 3)
 	{
 		std::cout << "|";
-		if (Coord._repertory[i].size() < 10)
+		if (Coord._repertory[i].size() < 11)
 			std::cout << CYANE << std::setw(10) << Coord._repertory[i];
 		else
 			std::cout << CYANE << Coord._repertory[i].substr(0,9) << ".";
