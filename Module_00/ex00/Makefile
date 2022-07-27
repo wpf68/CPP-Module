@@ -27,11 +27,11 @@ YELLOW	=	\033[1;33m
 RESET	=	\033[0m
 
 all: $(NAME)
-	@echo "$(RED)----------done------------$(RESET)"
+
 
 $(NAME): $(SRCS) $(OBJ)
 	$(CC) $(FLAGS) $(SRCS) -o $(NAME) 
-	@echo "$(RED)----------done------------$(RESET)"
+	@echo "$(YELLOW)----------done------------$(RESET)"
 
 
 %.o: %.c
@@ -48,4 +48,7 @@ fclean: clean
 
 re: fclean all 
 
-.PHONY:		all clean fclean re 
+test:	all
+	./${NAME} Damnit " ! " "Sorry students, I thought this thing was off."
+
+.PHONY:		all clean fclean re test
