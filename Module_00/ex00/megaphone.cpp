@@ -12,7 +12,7 @@
 
 
 #include <iostream>
-//#include <cctype>
+#include <cctype>
 
 int	main(int nb_arg, char **arg)
 {
