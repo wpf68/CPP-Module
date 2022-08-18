@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 11:04:31 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/28 11:04:31 by pwolff           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
@@ -52,7 +40,7 @@ public:
 	int		getEnnergyPoints(void);
 	int		getAttackDamage(void);
 	*/
-//	void	getStatusPlayer(ClapTrap Name) const;
+	void	getStatusPlayer2(void) const;
 
 private:
 	std::string		_Name;

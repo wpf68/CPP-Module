@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 11:02:55 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/28 11:02:55 by pwolff           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
 
 /*Public*/
 /***************************************************************************************************************************/
@@ -20,7 +10,7 @@
 
 ClapTrap::ClapTrap(void)
 {
-	_Name = "HEROES";
+	_Name = "HERO";
 	_HitPoints = 100;
 	_EnergyPoints = 100;
 	_AttackDamage = 10;
@@ -36,6 +26,11 @@ ClapTrap::ClapTrap(ClapTrap const& src)
 {
 	std::cout << WHITE "Copy constructor called" NONE << std::endl;
 	*this = src;
+	std::cout << CYANE;
+	std::cout << _Name << GREEN " is created" NONE << std::endl;
+	std::cout << WHITE "\tAttack damage : " << _AttackDamage << std::endl;
+	std::cout << "\tEnergy points : " << _EnergyPoints << std::endl;
+	std::cout << "\tHit points    : " << _HitPoints << NONE << std::endl;
 
 	return;
 }
@@ -78,10 +73,18 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 
+	std::cout << _Name << " = " << GREEN << rhs._Name << NONE << std::endl;
+	
 	this->_Name = rhs._Name;
 	this->_HitPoints = rhs._HitPoints;
 	this->_EnergyPoints = rhs._EnergyPoints;
 	this->_AttackDamage = rhs._AttackDamage;
+
+	std::cout << CYANE;
+	
+	std::cout << WHITE "\tAttack damage : " << _AttackDamage << std::endl;
+	std::cout << "\tEnergy points : " << _EnergyPoints << std::endl;
+	std::cout << "\tHit points    : " << _HitPoints << NONE << std::endl;
 
 	return (*this);
 }
@@ -119,7 +122,12 @@ void	ClapTrap::attack(const std::string& target)
 
 	std::cout << "\nClapTrap " CYANE << ClapTrap::_Name << NONE " attacks " CYANE << target;
 	std::cout << NONE ", causing " RED << ClapTrap::_AttackDamage << NONE " points of damage !";
+
+	/* ===============     Three    Methods  ===========================================*/
 	getStatusPlayer(_EnergyPoints, _HitPoints);
+	// ClapTrap::getStatusPlayer2();  // OK
+	// this->getStatusPlayer2();      // OK
+	/* =================================================================================*/
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -150,12 +158,15 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "\nClapTrap " CYANE << ClapTrap::_Name << NONE " repaired of the " CYANE << amount;
 	std::cout << NONE " points " << " and :";
 	getStatusPlayer(_EnergyPoints, _HitPoints);
-//	ClapTrap::getStatusPlayer(_Name);
+
+	//ClapTrap::getStatusPlayer2(); // OK
 
 //	std::cout << NONE " points " << " and : \n - Energy points : " GREEN << _EnergyPoints;
 //	std::cout << NONE "\n - Hit points    : " GREEN << _HitPoints;
 //	std::cout << std::endl;
+
 }
+
 
 /*Geters*/
 /*===============================================================*/
@@ -165,18 +176,18 @@ std::string	ClapTrap::getName(void) const
 	return (_Name);
 }
 
-int			ClapTrap::getDamage(void) const
+int		ClapTrap::getDamage(void) const
 {
 	return (_AttackDamage);
 }
 
-/*
-void		ClapTrap::getStatusPlayer(ClapTrap Name) const
+
+void	ClapTrap::getStatusPlayer2(void) const
 {
-	std::cout << NONE "\n - Energy points : " GREEN << _EnergyPoints << std::endl;
+	std::cout << NONE "\n - Energy points : " GREEN << _EnergyPoints;
 	std::cout << NONE "\n - Hit points    : " GREEN << _HitPoints << NONE << std::endl;
 }
-*/
+
 
 /*===============================================================*/
 /*===============================================================*/
@@ -184,6 +195,7 @@ void		ClapTrap::getStatusPlayer(ClapTrap Name) const
 std::ostream& operator<<(std::ostream& o, ClapTrap const& rhs)
 {
 	o << rhs.getName();
+
 	return (o);
 }
 

@@ -1,16 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 11:04:51 by pwolff            #+#    #+#             */
-/*   Updated: 2022/07/28 11:04:51 by pwolff           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+
+void	ft_present(void)
+{
+	std::cout << CLEAR << std::endl;
+	std::cout << RED;
+	std::cout << "             _____   _______   _____    ____    _   _     _" << std::endl;
+	std::cout << "    /\\      / ____| |__   __| |_   _|  / __ \\  | \\ | |   | |" << std::endl;
+	std::cout << "   /  \\    | |         | |      | |   | |  | | |  \\| |   | |" << std::endl;
+	std::cout << "  / /\\ \\   | |         | |      | |   | |  | | | . ` |   | |" << std::endl;
+	std::cout << " / ____ \\  | |____     | |     _| |_  | |__| | | |\\  |   |_|" << std::endl;
+	std::cout << "/_/    \\_\\  \\_____|    |_|    |_____|  \\____/  |_| \\_|   (_)" << std::endl;
+	std::cout << NONE << std::endl;
+	std::cout << std::endl;
+}
 
 int	main(void)
 {
@@ -18,9 +22,7 @@ int	main(void)
 
 	std::cout << std::endl;
 
-	std::cout << YELLOW "\n---------------  ------------------" NONE << std::endl;
-
-	std::cout << YELLOW "\n--------------- ClapTrap	Hero; ------------------" NONE << std::endl;
+	ft_present();
 
 	ClapTrap	Hero;
 
@@ -50,6 +52,11 @@ int	main(void)
 	ClapTrap	Player2(Player1);
 	std::cout << YELLOW "\n--------------- Player2.attack(\"HERO\"); ------------------" NONE << std::endl;
 	Player2.attack("HERO");
+
+	std::cout << YELLOW "\n--------------- Player1.getStatusPlayer2(); ------------------" NONE << std::endl;
+	Player1.getStatusPlayer2();
+
+
 	std::cout << YELLOW "\n--------------- Hero.takeDamage(Player1.getDamage()); ------------------" NONE << std::endl;
 	Hero.takeDamage(Player1.getDamage());
 
