@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/18 19:17:03 by pwolff            #+#    #+#              #
-#    Updated: 2022/08/18 19:17:03 by pwolff           ###   ########.fr        #
+#    Created: 2022/08/20 14:25:48 by pwolff            #+#    #+#              #
+#    Updated: 2022/08/20 14:25:48 by pwolff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Travail
+NAME		=	Ok
 
 SRCS		= 	main.cpp		\
 				ClapTrap.cpp	\

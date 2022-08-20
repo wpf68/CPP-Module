@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:45:37 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:45:37 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 13:58:09 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 13:58:09 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ public:
 
 	std::string	getName(void) const;
 	int			getDamage(void) const;
-	/*
-	int		getHitPoints(void);
-	int		getEnnergyPoints(void);
-	int		getAttackDamage(void);
-	*/
-	void	getStatusPlayer2(void) const;
+	void		getStatusPlayer2(void) const;
 
 private:
 	std::string		_Name;

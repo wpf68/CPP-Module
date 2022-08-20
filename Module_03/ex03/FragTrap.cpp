@@ -21,6 +21,7 @@
 FragTrap::FragTrap(void)
 {
 	std::cout << "Constructor FragTrap" << std::endl;
+	_Name = "FragTrap";
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name)
@@ -36,6 +37,22 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name)
 FragTrap::FragTrap(FragTrap const& src) : ClapTrap(src)
 {
 	std::cout << RED "Constructor FragTrap" NONE << std::endl;
+}
+
+FragTrap& FragTrap::operator=(FragTrap const& rhs)
+{
+	std::cout << "Copy assignment operator called FragTrap" << std::endl;
+	if (this == &rhs)
+		return(*this);
+
+	this->_Name = rhs._Name;
+	this->_HitPoints = rhs._HitPoints;
+	this->_EnergyPoints = rhs._EnergyPoints;
+	this->_AttackDamage = rhs._AttackDamage;
+
+	std::cout << _Name << " = " << GREEN << rhs._Name << NONE << std::endl;
+
+	return (*this);
 }
 
 /*Destructor*/
@@ -59,4 +76,3 @@ void	FragTrap::hightFivesGuys(void)
 {
 	std::cout << RED "FragTrap : " << _Name << " hight Fives !!! " NONE << std::endl;
 }
-

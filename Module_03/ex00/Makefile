@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/18 15:46:11 by pwolff            #+#    #+#              #
-#    Updated: 2022/08/18 15:46:11 by pwolff           ###   ########.fr        #
+#    Created: 2022/08/20 13:59:46 by pwolff            #+#    #+#              #
+#    Updated: 2022/08/20 13:59:46 by pwolff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ ROSE	=	\033[1,35m
 
 present:
 	clear
-
 
 $(OBJS_DIR)%.o : %.cpp
 	@mkdir -p $(OBJS_DIR)

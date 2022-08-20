@@ -47,12 +47,7 @@ public:
 
 	std::string	getName(void) const;
 	int			getDamage(void) const;
-	/*
-	int		getHitPoints(void);
-	int		getEnnergyPoints(void);
-	int		getAttackDamage(void);
-	*/
-	void	getStatusPlayer2(void) const;
+	void		getStatusPlayer2(void) const;
 
 protected:
 	std::string		_Name;

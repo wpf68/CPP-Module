@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:45:55 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:45:55 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 13:59:07 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 13:59:07 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
 
 void	ft_present(void)
 {
@@ -39,7 +40,7 @@ int	main(void)
 	std::cout << YELLOW "\nWhat is your name venerable warrior ?" NONE << std::endl;
 	while (true)
 	{
-		std::cout << GREEN "My name is " CYANE;
+		std::cout << GREEN "My name is : " CYANE;
 		std::getline(std::cin, name);
 		std::cout << NONE << std::endl;
 		if (!name.empty())
@@ -85,19 +86,6 @@ int	main(void)
 	std::cout << YELLOW "\n--------------- Player1.beRepaired(10); ------------------" NONE << std::endl;
 	Player1.beRepaired(10);
 	
-	/*
-	std::cout << YELLOW "\nAnd you noble lord?" NONE << std::endl;
-	while (true)
-	{
-	std::cout << GREEN "My name is " CYANE;
-	std::getline(std::cin, name);
-	std::cout << NONE << std::endl;
-	if (!name.empty())
-		break;
-	}
-	ClapTrap	Lord(name);
-	*/
-
 	std::cout << GREEN "\n** BYE **\n" NONE << std::endl;
 
 	return (0);

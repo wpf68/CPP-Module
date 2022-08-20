@@ -22,6 +22,8 @@ public:
 	FragTrap(void);
 	FragTrap(const std::string& name);
 	FragTrap(FragTrap const& src);
+	FragTrap& operator=(FragTrap const& rhs);
+
 	virtual ~FragTrap(void);
 
 	void	attack(const std::string& target);

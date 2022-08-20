@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:49:17 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:49:17 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 14:08:05 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 14:08:05 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ ClapTrap::ClapTrap(const std::string& name) : _Name(name)
 	std::cout << CYANE;
 	std::cout << _Name << GREEN " is created" NONE << std::endl;
 	ClapTrap::getStatusPlayer2();
-
 }
 
 /*Destructor*/
@@ -64,13 +63,13 @@ ClapTrap::~ClapTrap(void)
 	std::cout << RED << _Name << " is destroyed" NONE << std::endl;
 }
 
-
 /*===============================================================*/
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-
+	if (this == &rhs)
+		return(*this);
 	
 	this->_Name = rhs._Name;
 	this->_HitPoints = rhs._HitPoints;
@@ -116,7 +115,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (_HitPoints <= 0)
 		std::cout << NONE "ClapTrap : " CYANE << _Name << RED " is dead !!" NONE << std::endl;
 	getStatusPlayer(_EnergyPoints, _HitPoints);
-
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -135,15 +133,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "\nClapTrap " CYANE << ClapTrap::_Name << NONE " repaired of the " CYANE << amount;
 	std::cout << NONE " points " << " and :";
 	getStatusPlayer(_EnergyPoints, _HitPoints);
-
-	//ClapTrap::getStatusPlayer2(); // OK
-
-//	std::cout << NONE " points " << " and : \n - Energy points : " GREEN << _EnergyPoints;
-//	std::cout << NONE "\n - Hit points    : " GREEN << _HitPoints;
-//	std::cout << std::endl;
-
 }
-
 
 /*Geters*/
 /*===============================================================*/
@@ -158,7 +148,6 @@ int		ClapTrap::getDamage(void) const
 	return (_AttackDamage);
 }
 
-
 void	ClapTrap::getStatusPlayer2(void) const
 {
 	std::cout << NONE "\n - Name          : " CYANE << _Name;
@@ -166,7 +155,6 @@ void	ClapTrap::getStatusPlayer2(void) const
 	std::cout << NONE "\n - Energy points : " GREEN << _EnergyPoints;
 	std::cout << NONE "\n - Attack damage : " GREEN << _AttackDamage << NONE << std::endl;
 }
-
 
 /*===============================================================*/
 /*===============================================================*/

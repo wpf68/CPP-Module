@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:49:17 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:49:17 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 14:13:40 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 14:13:40 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ ClapTrap::~ClapTrap(void)
 ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-
+	if (this == &rhs)
+		return(*this);
 	
 	this->_Name = rhs._Name;
 	this->_HitPoints = rhs._HitPoints;
@@ -122,7 +123,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	_EnergyPoints--;
-	//std::string const name = _Name;
 
 	if (_EnergyPoints < 0 || _HitPoints <= 0)
 	{
@@ -135,13 +135,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "\nClapTrap " CYANE << ClapTrap::_Name << NONE " repaired of the " CYANE << amount;
 	std::cout << NONE " points " << " and :";
 	getStatusPlayer(_EnergyPoints, _HitPoints);
-
-	//ClapTrap::getStatusPlayer2(); // OK
-
-//	std::cout << NONE " points " << " and : \n - Energy points : " GREEN << _EnergyPoints;
-//	std::cout << NONE "\n - Hit points    : " GREEN << _HitPoints;
-//	std::cout << std::endl;
-
 }
 
 
@@ -158,7 +151,6 @@ int		ClapTrap::getDamage(void) const
 	return (_AttackDamage);
 }
 
-
 void	ClapTrap::getStatusPlayer2(void) const
 {
 	std::cout << NONE "\n - Name          : " CYANE << _Name;
@@ -167,14 +159,12 @@ void	ClapTrap::getStatusPlayer2(void) const
 	std::cout << NONE "\n - Attack damage : " GREEN << _AttackDamage << NONE << std::endl;
 }
 
-
 /*===============================================================*/
 /*===============================================================*/
 
 std::ostream& operator<<(std::ostream& o, ClapTrap const& rhs)
 {
 	o << rhs.getName();
-
 	return (o);
 }
 

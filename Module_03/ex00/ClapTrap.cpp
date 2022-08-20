@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:45:13 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:45:13 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 13:55:35 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 13:55:35 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,6 @@ ClapTrap::~ClapTrap(void)
 	std::cout << RED << _Name << " is destroyed" NONE << std::endl;
 }
 
-/*
-ClapTrap& ClapTrap::operator=(ClapTrap & rhs)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	_HitPoints = rhs.getHitPoints();
-	_EnergyPoints = rhs.getEnnergyPoints();
-	_AttackDamage = rhs.getAttackDamage();
-	return (* this);
-}
-*/
-
 /*===============================================================*/
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
@@ -84,7 +73,9 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 	std::cout << "Copy assignment operator called" << std::endl;
 
 	std::cout << _Name << " = " << GREEN << rhs._Name << NONE << std::endl;
-	
+	if (this == &rhs)
+		return(*this);
+
 	this->_Name = rhs._Name;
 	this->_HitPoints = rhs._HitPoints;
 	this->_EnergyPoints = rhs._EnergyPoints;
@@ -98,23 +89,6 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 
 	return (*this);
 }
-
-/*
-int		ClapTrap::getHitPoints(void)
-{
-	return (_HitPoints);
-}
-
-int		ClapTrap::getEnnergyPoints(void)
-{
-	return (_EnergyPoints);
-}
-
-int		ClapTrap::getAttackDamage(void)
-{
-	return (_AttackDamage);
-}
-*/
 
 /*===============================================================*/
 
@@ -155,7 +129,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	_EnergyPoints--;
-	//std::string const name = _Name;
 
 	if (_EnergyPoints < 0 || _HitPoints <= 0)
 	{
@@ -168,15 +141,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "\nClapTrap " CYANE << ClapTrap::_Name << NONE " repaired of the " CYANE << amount;
 	std::cout << NONE " points " << " and :";
 	getStatusPlayer(_EnergyPoints, _HitPoints);
-
-	//ClapTrap::getStatusPlayer2(); // OK
-
-//	std::cout << NONE " points " << " and : \n - Energy points : " GREEN << _EnergyPoints;
-//	std::cout << NONE "\n - Hit points    : " GREEN << _HitPoints;
-//	std::cout << std::endl;
-
 }
-
 
 /*Geters*/
 /*===============================================================*/
@@ -190,7 +155,6 @@ int		ClapTrap::getDamage(void) const
 {
 	return (_AttackDamage);
 }
-
 
 void	ClapTrap::getStatusPlayer2(void) const
 {

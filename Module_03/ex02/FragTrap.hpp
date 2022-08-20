@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 19:17:33 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 19:17:33 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 14:15:20 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 14:15:20 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
 	FragTrap(void);
 	FragTrap(const std::string& name);
 	FragTrap(FragTrap const& src);
+	FragTrap& operator=(FragTrap const& rhs);
 	~FragTrap(void);
 
 	void	attack(const std::string& target);

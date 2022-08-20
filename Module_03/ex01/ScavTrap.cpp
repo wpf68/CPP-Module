@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 15:50:17 by pwolff            #+#    #+#             */
-/*   Updated: 2022/08/18 15:50:17 by pwolff           ###   ########.fr       */
+/*   Created: 2022/08/20 14:10:41 by pwolff            #+#    #+#             */
+/*   Updated: 2022/08/20 14:10:41 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ ScavTrap::ScavTrap(ScavTrap const& src) : ClapTrap(src)
 	std::cout << RED "Constructor ScavTrap" NONE << std::endl;
 }
 
+ScavTrap& ScavTrap::operator=(ScavTrap const& rhs)
+{
+	std::cout << "Copy assignment operator called ScavTrap" << std::endl;
+	if (this == &rhs)
+		return(*this);
+
+	this->_Name = rhs._Name;
+	this->_HitPoints = rhs._HitPoints;
+	this->_EnergyPoints = rhs._EnergyPoints;
+	this->_AttackDamage = rhs._AttackDamage;
+
+	std::cout << _Name << " = " << GREEN << rhs._Name << NONE << std::endl;
+
+	return (*this);
+}
+
 /*Destructor*/
 /*===============================================================*/
 
@@ -59,4 +75,3 @@ void	ScavTrap::guardGate(void)
 {
 	std::cout << RED "ScavTrap : " << _Name << " came into Gate Keeper mode. " NONE << std::endl;
 }
-
