@@ -31,7 +31,7 @@ WrongCat::WrongCat(const std::string& name) : WrongAnimal(name)
 
 WrongCat::WrongCat(WrongCat const& src)
 {
-	std::cout << CYANE "Constructor WrongCat by copy called" NONE << std::endl;
+	std::cout << CYANE "Constructor WrongCat by affectation called" NONE << std::endl;
 	*this = src;
 }
 

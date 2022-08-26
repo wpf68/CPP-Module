@@ -30,7 +30,7 @@ Dog::Dog(const std::string& name) : Animal(name)
 
 Dog::Dog(Dog const& src)
 {
-	std::cout << GREEN "Constructor Dog by copy called" NONE << std::endl;
+	std::cout << GREEN "Constructor Dog by affectation called" NONE << std::endl;
 	*this = src;
 }
 

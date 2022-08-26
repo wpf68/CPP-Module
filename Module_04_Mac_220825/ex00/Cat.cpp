@@ -30,7 +30,7 @@ Cat::Cat(const std::string& name) : Animal(name)
 
 Cat::Cat(Cat const& src)
 {
-	std::cout << CYANE "Constructor Cat by copy called" NONE << std::endl;
+	std::cout << CYANE "Constructor Cat by affectation called" NONE << std::endl;
 	*this = src;
 }
 

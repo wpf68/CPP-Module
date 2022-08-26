@@ -26,7 +26,7 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 
 WrongCat::WrongCat(const std::string& name) : WrongAnimal(name)
 {
-	std::cout << YELLOW "Constructor WrongCat by copy called" NONE << std::endl;
+	std::cout << YELLOW "Constructor WrongCat by affectation called" NONE << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const& src)
