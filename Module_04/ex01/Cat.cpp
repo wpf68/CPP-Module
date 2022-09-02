@@ -24,13 +24,13 @@ Cat::Cat(void) : Animal("Cat")
 	_Brain = new Brain();
 }
 
-Cat::Cat(const std::string& name = "Cat") : Animal(name)
+Cat::Cat(const std::string& name) : Animal(name)
 {
-	std::cout << YELLOW "Constructor WrongCat by name called" NONE << std::endl;
+	std::cout << YELLOW "Constructor Cat by name called" NONE << std::endl;
 	_Brain = new Brain();
 }
 
-Cat::Cat(Cat const& src) : Animal(src), _Brain(new Brain(*src._Brain))
+Cat::Cat(Cat const& src) : Animal(src), _Brain(new Brain(*(src._Brain)))
 {
 	std::cout << CYANE "Constructor Cat by copy called" NONE << std::endl;
 	// *this = src;   copy superficielle
@@ -42,8 +42,10 @@ Cat& Cat::operator=(Cat const& rhs)
 	if (this == &rhs)
 		return (*this);
 
+//	*_Brain = *rhs._Brain;
+	delete _Brain;
+	_Brain = new Brain(*(rhs._Brain));
 	_type = rhs._type;
-	*_Brain = *rhs._Brain;
 	
 	return (*this);
 }

@@ -30,7 +30,7 @@ Brain::Brain(Brain const& src)
 	*this = src;
 }
 
-Brain::Brain(const std::string& name = "Brain") : _type(name)
+Brain::Brain(const std::string& name) : _type(name)
 {
 	std::cout << YELLOW "Constructor Brain by name called" NONE << std::endl;
 }

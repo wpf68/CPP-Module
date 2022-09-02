@@ -25,9 +25,9 @@ Dog::Dog(void) : Animal("Dog")
 
 }
 
-Dog::Dog(const std::string& name = "Dog") : Animal(name)
+Dog::Dog(const std::string& name) : Animal(name)
 {
-	std::cout << YELLOW "Constructor WrongCat by name called" NONE << std::endl;
+	std::cout << YELLOW "Constructor Dog by name called" NONE << std::endl;
 	_Brain = new Brain();
 
 }
@@ -44,8 +44,10 @@ Dog& Dog::operator=(Dog const& rhs)
 	if (this == &rhs)
 		return (*this);
 
+	//*_Brain = *rhs._Brain;
+	delete _Brain;
+	_Brain = new Brain(*(rhs._Brain));
 	_type = rhs._type;
-	*_Brain = *rhs._Brain;
 
 	return (*this);
 }

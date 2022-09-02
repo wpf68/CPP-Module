@@ -23,14 +23,14 @@ Cat::Cat(void) : Animal("Cat")
 	std::cout << CYANE "Constructor Cat by default called" NONE << std::endl;
 }
 
-Cat::Cat(const std::string& name = "Cat") : Animal(name)
+Cat::Cat(const std::string& name) : Animal(name)
 {
-	std::cout << YELLOW "Constructor WrongCat by copy called" NONE << std::endl;
+	std::cout << YELLOW "Constructor Cat by copy called" NONE << std::endl;
 }
 
 Cat::Cat(Cat const& src)
 {
-	std::cout << CYANE "Constructor Cat by copy called" NONE << std::endl;
+	std::cout << CYANE "Constructor Cat by affectation called" NONE << std::endl;
 	*this = src;
 }
 

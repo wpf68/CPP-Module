@@ -23,14 +23,14 @@ Dog::Dog(void) : Animal("Dog")
 	std::cout << GREEN "Constructor Dog by default called" NONE << std::endl;
 }
 
-Dog::Dog(const std::string& name = "Dog") : Animal(name)
+Dog::Dog(const std::string& name) : Animal(name)
 {
-	std::cout << YELLOW "Constructor WrongCat by copy called" NONE << std::endl;
+	std::cout << YELLOW "Constructor Dog by copy called" NONE << std::endl;
 }
 
 Dog::Dog(Dog const& src)
 {
-	std::cout << GREEN "Constructor Dog by copy called" NONE << std::endl;
+	std::cout << GREEN "Constructor Dog by affectation called" NONE << std::endl;
 	*this = src;
 }
 

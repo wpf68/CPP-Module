@@ -30,9 +30,9 @@ Animal::Animal(Animal const& src)
 	*this = src;
 }
 
-Animal::Animal(const std::string& name = "Animal") : _type(name)
+Animal::Animal(const std::string& name) : _type(name)
 {
-	std::cout << YELLOW "Constructor Animal by copy called" NONE << std::endl;
+	std::cout << YELLOW "Constructor Animal by affectation called" NONE << std::endl;
 }
 
 Animal& Animal::operator=(Animal const& rhs)

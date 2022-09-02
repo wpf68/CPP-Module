@@ -30,9 +30,9 @@ WrongAnimal::WrongAnimal(WrongAnimal const& src)
 	*this = src;
 }
 
-WrongAnimal::WrongAnimal(const std::string& name = "WrongAnimal") : _type(name)
+WrongAnimal::WrongAnimal(const std::string& name) : _type(name)
 {
-	std::cout << YELLOW "Constructor WrongAnimal by copy called" NONE << std::endl;
+	std::cout << YELLOW "Constructor WrongAnimal by affectation called" NONE << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(WrongAnimal const& rhs)

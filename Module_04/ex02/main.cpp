@@ -66,9 +66,25 @@ int	main(void)
 
 	std::cout << "\n ************************ " << std::endl;
 
-	//  ***********  Impossible Classe abstraite  ***********
+	std::cout << "\n ************************ " << std::endl;
+	{
+		Cat *p1 = new Cat("p1");
+		Cat *p2 = new Cat("p2");
 
-//	Animal animal;
+		*p2 = *p1;
 
+		delete p1;
+		delete p2;
+	}
+	std::cout << "\n ************************ " << std::endl;
+	{
+		Dog *p1 = new Dog("p1");
+		Dog *p2 = new Dog("p2");
+
+		*p2 = *p1;
+
+		delete p1;
+		delete p2;
+	}
 	return (0);
 }

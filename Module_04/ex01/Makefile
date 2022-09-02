@@ -69,6 +69,9 @@ fclean: clean
 re: fclean all
 
 test:	all
+	./${NAME}
+
+linux: all
 	valgrind ./${NAME}
 
-.PHONY:		all clean fclean re test present
+.PHONY:		all clean fclean re test present linux

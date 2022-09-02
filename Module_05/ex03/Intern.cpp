@@ -58,12 +58,7 @@ Form* Intern::makeForm(std::string const &nameForm, std::string const &targetFor
 {
 	Form* Cform;
 
-	std::string choice[3]
-	{
-		"presidential pardon",
-		"robotomy request",
-		"shrubbery creation",
-	};
+	std::string choice[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 
 	for (int i = 0; i < 3; i++)
 	{

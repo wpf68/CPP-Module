@@ -37,33 +37,60 @@ int	main(void)
 {
 	ft_present();
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
+	{
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		delete j;//should not create a leak
+		delete i;
+
+		std::cout << "\n ************************ " << std::endl;
+		std::cout << "\n ************************ " << std::endl;
+
+		Animal* tab = new Animal[10];
+		for (int f = 0; f < 5; f++)
+			tab[f] = Dog();
+		for (int f = 5; f < 10; f++)
+			tab[f] = Cat();
+		for (int f = 0; f < 10; f++)
+			tab[f].makeSound();  // no OK  --> no pointeurs
+		delete [] tab;
+
+
+		Animal* tab2 [10];
+		for (int f = 0; f < 5; f++)
+			tab2[f] = new Dog();
+		for (int f = 5; f < 10; f++)
+			tab2[f] = new Cat();
+		for (int f = 0; f < 10; f++)
+			tab2[f]->makeSound();  // OK  -->  pointeurs
+		for (int f = 0; f < 10; f++)
+			delete tab2[f];
+	}
 
 	std::cout << "\n ************************ " << std::endl;
 	std::cout << "\n ************************ " << std::endl;
+	{
+		Cat cat1p;
+		Cat cat2p(cat1p);
+	}
 
-	Animal* tab = new Animal[10];
-	for (int f = 0; f < 5; f++)
-		tab[f] = Dog();
-	for (int f = 5; f < 10; f++)
-		tab[f] = Cat();
-	for (int f = 0; f < 10; f++)
-		tab[f].makeSound();  // no OK  --> no pointeurs
-	delete [] tab;
+	std::cout << "\n ************************ " << std::endl;
+	std::cout << " ************************ " << std::endl;
+	{
+		Cat cat1p;
+		Cat cat2p;
+		cat2p = cat1p;
+	}
 
+	std::cout << "\n ************************ " << std::endl;
+	{
+		Cat *p1 = new Cat("p1");
+		Cat *p2 = new Cat("p2");
 
-	Animal* tab2 [10];
-	for (int f = 0; f < 5; f++)
-		tab2[f] = new Dog();
-	for (int f = 5; f < 10; f++)
-		tab2[f] = new Cat();
-	for (int f = 0; f < 10; f++)
-		tab2[f]->makeSound();  // OK  -->  pointeurs
-	for (int f = 0; f < 10; f++)
-		delete tab2[f];
+		*p2 = *p1;
 
+		delete p1;
+		delete p2;
+	}
 	return (0);
 }

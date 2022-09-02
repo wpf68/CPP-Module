@@ -24,14 +24,14 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 	std::cout << CYANE "Constructor WrongCat by default called" NONE << std::endl;
 }
 
-WrongCat::WrongCat(const std::string& name = "WrongCat") : WrongAnimal(name)
+WrongCat::WrongCat(const std::string& name) : WrongAnimal(name)
 {
 	std::cout << YELLOW "Constructor WrongCat by copy called" NONE << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const& src)
 {
-	std::cout << CYANE "Constructor WrongCat by copy called" NONE << std::endl;
+	std::cout << CYANE "Constructor WrongCat by affectation called" NONE << std::endl;
 	*this = src;
 }
 
