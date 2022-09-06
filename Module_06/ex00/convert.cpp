@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 16:51:00 by pwolff            #+#    #+#             */
-/*   Updated: 2022/09/03 16:51:00 by pwolff           ###   ########.fr       */
+/*   Created: 2022/09/06 10:13:34 by pwolff            #+#    #+#             */
+/*   Updated: 2022/09/06 10:13:34 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ void	ft_convert(char* argv)
 	d_double = std::strtod(argv, NULL);
 	s_string = std::to_string(d_double);
 
-	if (d_double == 0 && argv[0] != '0')
+	if (d_double == 0 && argv[0] != '0' && argv[1] != '\0')
 	{
 		std::cout << RED "Error :: Unknow Input" NONE << std::endl;
 	}
 	else
 	{
+		if (d_double == 0 && argv[1] == '\0')
+			d_double = static_cast<double>(argv[0]);
 		// -----  calcul n_decimal   -------------------------
 		i = 0;
 		while (argv[i] != '.' && argv[i])
