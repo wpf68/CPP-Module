@@ -20,23 +20,23 @@ int	main(void)
 
 	std::cout << ROSE "--------------------------------- Test ** vector ** ----------------------------------------\n" NONE << std::endl;
 
-//	std::vector<int> condener(5,56);
-//	std::vector<int> condener(7);
-	std::vector<int> condener = {0, 2, 45, 5, 56, 8};
+//	std::vector<int> container(5,56);
+//	std::vector<int> container(7);
+	std::vector<int> container = {0, 2, 45, 5, 56, 8};
 
-	condener.push_back(2);
+	container.push_back(2);
 
-	for (int i = 0; i < condener.size(); i++)
-		std::cout << YELLOW "Index :: condener [" << i << "] = " << condener[i] << NONE << std::endl;
+	for (int i = 0; i < container.size(); i++)
+		std::cout << YELLOW "Index :: container [" << i << "] = " << container[i] << NONE << std::endl;
 
 	std::vector<int>::iterator it;
-	for (it = condener.begin(); it != condener.end(); it++)
-		std::cout << CYANE "Iterator :: condener [" << &it << "] = " << *it << NONE << std::endl;
+	for (it = container.begin(); it != container.end(); it++)
+		std::cout << CYANE "Iterator :: container [" << &it << "] = " << *it << NONE << std::endl;
 
-	std::cout << ROSE "Test : easyfind(condener, 5)" NONE << std::endl;
+	std::cout << ROSE "Test : easyfind(container, 5)" NONE << std::endl;
 	try
 	{
-		std::cout << GREEN "Element found in condener : " << *(easyfind(condener, 5)) << NONE << std::endl;
+		std::cout << GREEN "Element found in container : " << *(easyfind(container, 5)) << NONE << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -44,10 +44,10 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << ROSE "Test : easyfind(condener, 9)" NONE << std::endl;
+	std::cout << ROSE "Test : easyfind(container, 9)" NONE << std::endl;
 	try
 	{
-		std::cout << GREEN "Element found in condener : " << *(easyfind(condener, 9)) << NONE << std::endl;
+		std::cout << GREEN "Element found in container : " << *(easyfind(container, 9)) << NONE << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -57,22 +57,22 @@ int	main(void)
 
 	std::cout << ROSE "\n--------------------------------- Test ** list ** ----------------------------------------\n" NONE << std::endl;
 
-	std::list<int> condener2 = {23, 23, 58, 45, 5};
+	std::list<int> container2 = {23, 23, 58, 45, 5};
 
-	condener2.push_back(42);
+	container2.push_back(42);
 
 	/*   ------------- vector OK -- No permisse for list  ---------------------------------
-	for (int i = 0; i < condener2.size(); i++)
-		std::cout << "condener2 [" << i << "] = " << condener2[i] << std::endl;
+	for (int i = 0; i < container2.size(); i++)
+		std::cout << "container2 [" << i << "] = " << container2[i] << std::endl;
 	*/
 	std::list<int>::iterator it2;
-	for (it2 = condener2.begin(); it2 != condener2.end(); it2++)
-		std::cout << CYANE "Iterator :: condener2 [" << &it2 << "] = " << *it2 << NONE << std::endl;
+	for (it2 = container2.begin(); it2 != container2.end(); it2++)
+		std::cout << CYANE "Iterator :: container2 [" << &it2 << "] = " << *it2 << NONE << std::endl;
 
-	std::cout << ROSE "Test : easyfind(condener, 42)" NONE << std::endl;
+	std::cout << ROSE "Test : easyfind(container, 42)" NONE << std::endl;
 	try
 	{
-		std::cout << GREEN "Element found in condener : " << *(easyfind(condener2, 42)) << NONE << std::endl;
+		std::cout << GREEN "Element found in container : " << *(easyfind(container2, 42)) << NONE << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -80,10 +80,10 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << ROSE "Test : easyfind(condener, 9)" NONE << std::endl;
+	std::cout << ROSE "Test : easyfind(container, 9)" NONE << std::endl;
 	try
 	{
-		std::cout << GREEN "Element found in condener : " << *(easyfind(condener2, 9)) << NONE << std::endl;
+		std::cout << GREEN "Element found in container : " << *(easyfind(container2, 9)) << NONE << std::endl;
 	}
 	catch (const std::exception& e)
 	{

@@ -38,11 +38,11 @@
 # endif
 
 template <typename T>
-typename T::iterator	easyfind(T & condener, int const & nb)
+typename T::iterator	easyfind(T & container, int const & nb)
 {
 	typename T::iterator it;
-	it = std::find(condener.begin(), condener.end(), nb);
-	if (it != condener.end())
+	it = std::find(container.begin(), container.end(), nb);
+	if (it != container.end())
 		return (it);
 	else
 		throw std::exception();
