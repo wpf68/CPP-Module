@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 07:49:25 by pwolff            #+#    #+#             */
-/*   Updated: 2022/09/09 07:49:25 by pwolff           ###   ########.fr       */
+/*   Created: 2022/09/10 15:11:12 by pwolff            #+#    #+#             */
+/*   Updated: 2022/09/10 15:11:12 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ public:
 	void	addNumber(int nb);
 	int		shortestSpan(void);
 	int		longestSpan(void);
-	void	rangeOfIterators(unsigned int begin, unsigned int end);				// Random
-	void	rangeOfIterators(unsigned int begin, unsigned int end, int val);	// Defined
+	void	rangeOfIterators(unsigned int begin, unsigned int end);								// Random range
+	void	rangeOfIterators(unsigned int begin, unsigned int end, int val);					// Defined range
+	void	rangeOfIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end);	// Iterator range
 
 	void	display(void);
 	void	sort(void);

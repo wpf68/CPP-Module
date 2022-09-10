@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pwolff <pwolff@student.42mulhouse.fr>>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 07:48:51 by pwolff            #+#    #+#             */
-/*   Updated: 2022/09/09 07:48:51 by pwolff           ###   ########.fr       */
+/*   Created: 2022/09/10 14:59:11 by pwolff            #+#    #+#             */
+/*   Updated: 2022/09/10 14:59:11 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	try
 	{
 		for (int i = 0; i < 20000; i++)
-			test0.addNumber((rand() % 100000) - 50000);
+			test0.addNumber((rand() % 100000));
 	}
 	catch (std::exception& e)
 	{
@@ -38,17 +38,17 @@ int main(void)
 
 	try
 	{
-		longSpan = test0.longestSpan();
-		std::cout << GREEN "longestSpan = " << longSpan << NONE << std::endl;
 		shortSpan = test0.shortestSpan();
 		std::cout << GREEN "shortesSpan = " << shortSpan << NONE << std::endl;
+		longSpan = test0.longestSpan();
+		std::cout << GREEN "longestSpan = " << longSpan << NONE << std::endl;
 	}
 	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << WHITE "====================================================================" NONE << std::endl;
+	std::cout << WHITE "===============  Subject  ==========================================" NONE << std::endl;
 	/* ===================================================================================== */
 
 	Span sp = Span(5);
@@ -107,6 +107,58 @@ int main(void)
 	sp = test1;
 	std::cout << YELLOW "Span sp = ";
 	sp.display();
+
+	try
+	{
+		longSpan = sp.longestSpan();
+		std::cout << GREEN "\nlongestSpan sp = " << longSpan << NONE << std::endl;
+		shortSpan = sp.shortestSpan();
+		std::cout << GREEN "shortesSpan sp = " << shortSpan << NONE << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << NONE "\n" << std::endl;
+	std::cout << WHITE "       ---------  test sp[1] = 24  ----------  " << std::endl;
+	sp.rangeOfIterators(1, 1, 24);
+	std::cout << WHITE "Span sp2   = ";
+	sp.display();
+	std::cout << NONE << std::endl;
+	std::cout << WHITE "Span test1 = ";
+	test1.display();
+
+	try
+	{
+		longSpan = sp.longestSpan();
+		std::cout << GREEN "\nlongestSpan sp = " << longSpan << NONE << std::endl;
+		shortSpan = sp.shortestSpan();
+		std::cout << GREEN "shortesSpan sp = " << shortSpan << NONE << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << NONE "\n" << std::endl;
+	std::cout << WHITE "====================================================================" NONE << std::endl;
+	/* ===================================================================================== */
+	std::cout << WHITE "================= Test sp2(test1) ================================\n" NONE << std::endl;
+
+	Span sp2(test1);
+	std::cout << YELLOW "Span sp2 = ";
+	sp2.display();
+
+	std::cout << NONE "\n" << std::endl;
+	std::cout << WHITE "       ---------  test sp2[1] = 42  ----------  "  << std::endl;
+	sp2.rangeOfIterators(1, 1, 42);
+	std::cout << WHITE "Span sp2   = ";
+	sp2.display();
+	std::cout << NONE << std::endl;
+	std::cout << WHITE "Span test1 = ";
+	test1.display();
+
 	std::cout << NONE "\n" << std::endl;
 	std::cout << WHITE "====================================================================" NONE << std::endl;
 	/* ===================================================================================== */
@@ -173,20 +225,24 @@ int main(void)
 	test2.display();
 	std::cout << NONE << std::endl;
 
-	std::cout << WHITE "====================================================================" NONE << std::endl;
-	std::cout << WHITE "=====================  Random values ===============================" NONE << std::endl;
+	std::cout << CYANE "\n====================================================================" NONE << std::endl;
+	std::cout << CYANE "====================================================================" NONE << std::endl;
+	std::cout << CYANE "-- iterator ranges:: if previous range empty, force data to zero ===" NONE << std::endl;
+	std::cout << WHITE "\n====================================================================" NONE << std::endl;
+	std::cout << WHITE "=====================  Random values :: tab(100) ===================" NONE << std::endl;
 
-	/* ===================================================================================== */
+	// ===================================================================================== 
 	Span tab(100); //Un tableau de 100 cases
 
-
+	std::cout << YELLOW "\n----------- rangeOfIterators(3, 9)" NONE << std::endl;
 	tab.rangeOfIterators(3, 9);
-	std::cout << ROSE "\ndisplay  = ";
+	std::cout << ROSE "display  = ";
 	tab.display();
 	std::cout << std::endl;
 
+	std::cout << YELLOW "\n----------- rangeOfIterators(30, 35)" NONE << std::endl;
 	tab.rangeOfIterators(30, 35);
-	std::cout << ROSE "\ndisplay  = ";
+	std::cout << ROSE "display  = ";
 	tab.display();
 	std::cout << std::endl;
 
@@ -204,31 +260,38 @@ int main(void)
 
 	std::cout << NONE << std::endl;
 	std::cout << WHITE "\n===============================//=====================================" NONE << std::endl;
-	std::cout << WHITE "==================== defined values  ==================================" NONE << std::endl;
+	std::cout << WHITE "==================== defined values :: tab(20)  ========================" NONE << std::endl;
 
-	/* ===================================================================================== */
-	Span tab2(20); //Un tableau de 100 cases
+	// ===================================================================================== 
+	Span tab2(20); //Un tableau de 20 cases
 
 	tab2.addNumber(6);
 	tab2.addNumber(3);
-
-	tab2.rangeOfIterators(9, 13, 42);
 	std::cout << ROSE "\ndisplay  = ";
 	tab2.display();
 	std::cout << std::endl;
 
+	std::cout << YELLOW "\n----------- rangeOfIterators(9, 14, 42)" NONE << std::endl;
+	tab2.rangeOfIterators(9, 14, 42);
+	std::cout << ROSE "display  = ";
+	tab2.display();
+	std::cout << std::endl;
+
+	std::cout << YELLOW "\n----------- rangeOfIterators(4, 6, 2)" NONE << std::endl;
 	tab2.rangeOfIterators(4, 6, 2);
-	std::cout << ROSE "\ndisplay  = ";
+	std::cout << ROSE "display  = ";
 	tab2.display();
 	std::cout << std::endl;
 
-	tab2.rangeOfIterators(15, 17, -56);
-	std::cout << ROSE "\ndisplay  = ";
+	std::cout << YELLOW "\n----------- rangeOfIterators(15, 19, -56)" NONE << std::endl;
+	tab2.rangeOfIterators(15, 19, -56);
+	std::cout << ROSE "display  = ";
 	tab2.display();
 	std::cout << std::endl;
 
+	std::cout << YELLOW "\n----------- rangeOfIterators(16, 16, -100)" NONE << std::endl;
 	tab2.rangeOfIterators(16, 16, -100);
-	std::cout << ROSE "\ndisplay  = ";
+	std::cout << ROSE "display  = ";
 	tab2.display();
 	std::cout << std::endl;
 
@@ -244,7 +307,87 @@ int main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << WHITE "===============================//=====================================" << std::endl;
+
+	std::cout << WHITE "\n===============================//=====================================" NONE << std::endl;
+	std::cout << WHITE "==================== test over values :: tab(10)  ======================" NONE << std::endl;
+
+	Span tab3(10); //Un tableau de 10 cases
+
+
+	std::cout << YELLOW "\n----------- rangeOfIterators(9, 13)" NONE << std::endl;
+	tab3.rangeOfIterators(9, 13);
+	std::cout << ROSE "display  = ";
+	tab3.display();
+	std::cout << std::endl;
+
+	std::cout << YELLOW "\n----------- rangeOfIterators(4, 6, 2)" NONE << std::endl;
+	tab3.rangeOfIterators(4, 6, 2);
+	std::cout << ROSE "display  = ";
+	tab3.display();
+	std::cout << std::endl;
+
+	std::cout << YELLOW "\n----------- rangeOfIterators(15, 17, -56)" NONE << std::endl;
+	tab3.rangeOfIterators(15, 17, -56);
+	std::cout << ROSE "\ndisplay  = ";
+	tab3.display();
+	std::cout << std::endl;
+
+	std::cout << YELLOW "\n----------- rangeOfIterators(0, 0, -100)" NONE << std::endl;
+	tab3.rangeOfIterators(0, 0, -100);
+	std::cout << ROSE "\ndisplay  = ";
+	tab3.display();
+	std::cout << std::endl;
+
+	try
+	{
+		shortSpan = tab3.shortestSpan();
+		std::cout << GREEN "shortesSpan = " << shortSpan << NONE << std::endl;
+		longSpan = tab3.longestSpan();
+		std::cout << GREEN "longestSpan = " << longSpan << NONE << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << CYANE "\n====================================================================" NONE << std::endl;
+	std::cout << CYANE "====================================================================" NONE << std::endl;
+	std::cout << CYANE "-- iterator ranges:: source :                             ----------" NONE << std::endl;
+	std::cout << CYANE "-- std::vector<int> myvector = { 1, 42, -42, 0, 22 };     ----------" NONE << std::endl;
+	std::cout << WHITE "\n====================================================================" NONE << std::endl;
+	std::cout << WHITE "====    rangeOfIterators(myvector.begin(), myvector.end());    =======" NONE << std::endl;
+
+	std::vector<int> myvector = { 1, 42, -42, 0, 22 };
+	Span copyMyvector(40);
+
+	try
+	{
+		copyMyvector.rangeOfIterators(myvector.begin(), myvector.end());
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << ROSE "\ndisplay  = ";
+	copyMyvector.display();
+	std::cout << std::endl;
+
+
+	std::cout << WHITE "\n====================================================================" NONE << std::endl;
+	std::cout << WHITE "=== rangeOfIterators(myvector.begin(), myvector.begin() + 2);  =======" NONE << std::endl;
+
+	try
+	{
+		copyMyvector.rangeOfIterators(myvector.begin(), myvector.begin() + 2);
+
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << ROSE "\ndisplay  = ";
+	copyMyvector.display();
+	std::cout << std::endl;
 
 	return (0);
 }
