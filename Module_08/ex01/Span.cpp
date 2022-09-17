@@ -156,8 +156,10 @@ int		Span::shortestSpan(void)
 
 void	Span::display(void)
 {
-	for (int n : _vector) 
-		std::cout << n << ", ";
+	for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
+		std::cout << *it << ", ";
+	//for (int n : _vector) 
+	//	std::cout << n << ", ";
 }
 
 /*Seters*/

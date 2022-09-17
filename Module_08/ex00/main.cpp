@@ -22,8 +22,12 @@ int	main(void)
 
 //	std::vector<int> container(5,56);
 //	std::vector<int> container(7);
-	std::vector<int> container = {0, 2, 45, 5, 56, 8};
-
+	std::vector<int> container;
+	container.push_back(0);
+	container.push_back(2);
+	container.push_back(45);
+	container.push_back(5);
+	container.push_back(8);
 	container.push_back(2);
 
 	for (int i = 0; i < container.size(); i++)
@@ -57,8 +61,12 @@ int	main(void)
 
 	std::cout << ROSE "\n--------------------------------- Test ** list ** ----------------------------------------\n" NONE << std::endl;
 
-	std::list<int> container2 = {23, 23, 58, 45, 5};
-
+	std::list<int> container2;
+	container2.push_back(23);
+	container2.push_back(23);
+	container2.push_back(58);
+	container2.push_back(45);
+	container2.push_back(5);
 	container2.push_back(42);
 
 	/*   ------------- vector OK -- No permisse for list  ---------------------------------

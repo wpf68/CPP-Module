@@ -357,7 +357,13 @@ int main(void)
 	std::cout << WHITE "\n====================================================================" NONE << std::endl;
 	std::cout << WHITE "====    rangeOfIterators(myvector.begin(), myvector.end());    =======" NONE << std::endl;
 
-	std::vector<int> myvector = { 1, 42, -42, 0, 22 };
+	//std::vector<int> myvector = { 1, 42, -42, 0, 22 };
+	std::vector<int> myvector;
+	myvector.push_back(1);
+	myvector.push_back(42);
+	myvector.push_back(-42);
+	myvector.push_back(0);
+	myvector.push_back(22);
 	Span copyMyvector(40);
 
 	try

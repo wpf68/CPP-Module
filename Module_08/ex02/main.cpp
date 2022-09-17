@@ -43,8 +43,10 @@ int main()
 	std::stack<int> s(mstack);
 
 	std::cout << YELLOW "\nVerif : MutantStack<int> mstack;" CYANE "\nmstack = " ;
-	for (int n : mstack)
-		std::cout << n << ", ";
+	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+		std::cout << *it << ", ";
+	/*for (int n : mstack)
+		std::cout << n << ", ";*/
 	std::cout << std::endl;
 
 	std::cout << YELLOW "\nVerif : std::stack<int> s(mstack);" CYANE "\ns = " ;
